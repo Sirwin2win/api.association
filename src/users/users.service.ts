@@ -31,9 +31,9 @@ export class UsersService {
 async findMany(branch: string) {
   return this.prisma.user.findMany({ 
 include:{
-  branches:{
+  branch:{
     where:{
-      branch:branch,
+      branch
     }
   }
 }

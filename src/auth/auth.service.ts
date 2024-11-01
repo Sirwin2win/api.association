@@ -54,6 +54,10 @@ export class AuthService {
     firstName:user.firstName,
     lastName:user.lastName,
     email:user.email,
+    village:user.village,
+    occupation:user.occupation,
+    phone:user.phone,
+    branchId:user.branchId
     }
 
 

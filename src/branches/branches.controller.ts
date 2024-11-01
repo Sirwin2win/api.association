@@ -24,13 +24,7 @@ import { UpdateBranchDto } from './dto/update-branch.dto';
 export class BranchesController {
   constructor(private readonly branchesService: BranchesService) {}
 
-
-
-
-
-
-
-  @UseGuards(JwtAuthGuard)
+  // @UseGuards(JwtAuthGuard)
   @Post()
   // @ApiConsumes('multipart/form-data')
   @ApiCreatedResponse()
@@ -40,10 +34,38 @@ export class BranchesController {
   }
 
 
+  // @Get()
+  // findMany(':id'){
+  //  return this.branchesService.findMany()
+  // }
+
+
+   // @Get store based on user id
+  //  @Get(':branch')
+  //  findMany(@Param('branch') branch : string){
+  //    return this.branchesService.findMany(branch)
+  //  }
+
+  
+  // @Get store based on user id
+  @Get(':id')
+  findMany(@Param('id') id : number){ 
+    return this.branchesService.find(+id)
+  }
+
+
+
    // Get request
    @Get()
    findAll() {
    
      return this.branchesService.findAll();
+   }
+
+   
+
+   @Delete(':id')
+   delete(@Param('id') id: number) {
+     return this.branchesService.delete(+id);
    }
 }

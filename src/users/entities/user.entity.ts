@@ -20,7 +20,7 @@ export class UserEntity implements User {
   lastName: string;
 
   @ApiProperty()
-  state: string;
+  cityId: number;
 
   @ApiProperty()
   village: string;
@@ -36,6 +36,20 @@ export class UserEntity implements User {
 
   @ApiProperty()
   password: string;
+
+  @ApiProperty()
+  role: string;
+
+  @ApiProperty()
+  status: string;
+  
+
+  @ApiProperty()
+  createdAt: Date;
+
+
+  @ApiProperty()
+  branchId: number;
 
   // @Exclude()
   // password: string;

@@ -11,41 +11,130 @@ export class BranchesService {
     // Create Branch
     async  create(createBranchDto: CreateBranchDto) {
         return this.prisma.branch.create({
-            //  data: createBranchDto
-            data:{
-                  address:createBranchDto.address,
-                  state:createBranchDto.state,
-                  branch:createBranchDto.branch,
-                  userId:createBranchDto.userId
-            }
+             data: createBranchDto
             });
       }
 
 // Get All Branches
       async  findAll() {
-        return this.prisma.branch.findMany();
+        return this.prisma.branch.findMany({
+          include:{
+            city:{
+                  
+            }
+          }
+        });
       }
 
-    //   // @Get Products By StoreId
-    //   async findMany(subdomain: string) {
-    //     return this.prisma.product.findMany({ 
-    //       where: { 
-    //    store:{
-    //     is:{
-    //       subdomain:subdomain
-    //     },
-      
-    //    }
-    //       }
+
+    //   async findMany(branch:string) {
+    //     return this.prisma.branch.findMany({ 
+    //       where:{
+    //         branch,},
+    // include:{
+    //   Complaint:{
+    //     select:{
+    //       id:true,
+    //       title:true,
+    //       description:true
+    //     }
+    //   },
+    //   Contribution:{
+    //     select:{
+    //       id:true,
+    //       title:true,
+    //       description:true,
+    //       image:true
+    //     }
+    //   },
+    //   Minute:{
+    //     select:{
+    //       id:true,
+    //       agenda:true,
+    //       image:true
+    //     }
+    //   },
+    //   User:{
+    //     select:{
+    //       id:true,
+    //       firstName:true,
+    //       lastName:true,
+    //       phone:true
+    //     }
+    //   }
+
+    // }
+    
     //       });
     //   }
-    
-     async findMany(branch: string) {
+
+
+
+
+      async find(id:number){
         return this.prisma.branch.findMany({ 
-     where:{
-        branch
-     }
+          where:{
+            id,},
+            include:{
+              Complaint:{
+                select:{
+                  id:true,
+                  title:true,
+                  description:true,
+                  fullName:true,
+                  createdAt:true
+                }
+              },
+              Contribution:{
+                select:{
+                  id:true,
+                  title:true,
+                  description:true,
+                  image:true,
+                  fullName:true,
+                  createdAt:true
+                }
+              },
+              Minute:{
+                select:{
+                  id:true,
+                  agenda:true,
+                  image:true,
+                  fullName:true,
+                  createdAt:true
+                }
+              },
+              User:{
+                select:{
+                  id:true,
+                  firstName:true,
+                  lastName:true,
+                  phone:true,
+                  occupation:true
+                }
+              },
+              Attendance:{
+                select:{
+                  fullName:true,
+                  status:true,
+                  createdAt:true,
+                  userId:true,
+                  branchId:true
+                }
+              }
+        
+            }
+    
           });
       }
+
+
+    
+    
+    
+// Delete Branch
+      delete(id: number) {
+            return this.prisma.branch.delete({ where: { id } });
+          }
     
 }

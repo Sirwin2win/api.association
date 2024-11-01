@@ -39,7 +39,8 @@ export class AuthController {
           email: body.email,
           occupation: body.occupation,
           phone: body.phone,
-          state: body.state,
+          cityId: body.cityId,
+        branchId: body.branchId,
           village: body.village,
         }
 

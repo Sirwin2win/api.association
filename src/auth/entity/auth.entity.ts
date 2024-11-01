@@ -8,5 +8,10 @@ export class AuthEntity {
   firstName:string
   lastName:string
   email:string
+  village:string
+  occupation:string
+  phone:string
+  branchId:number
+  // branch:string
 
 }

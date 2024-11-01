@@ -15,23 +15,12 @@ export class CreateBranchDto {
   @IsNotEmpty()
 //   @MinLength(5)
   @ApiProperty()
-  address: string;
-
-  @IsString()
-  @IsNotEmpty()
-  @ApiProperty()
-  state: string;
-
-  @IsString()
-  @IsNotEmpty()
-  @ApiProperty()
   branch: string;
 
   @IsNumber()
   @IsNotEmpty()
   @ApiProperty()
-  userId: number;
-
+  cityId: number;
 
 
 }

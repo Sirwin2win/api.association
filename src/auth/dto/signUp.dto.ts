@@ -33,16 +33,6 @@ export class SignUpDto {
   @IsString()
   @IsNotEmpty()
   @ApiProperty()
-  state: string;
-
-  @IsString()
-  @IsNotEmpty()
-  @ApiProperty()
-  village: string;
-
-  @IsString()
-  @IsNotEmpty()
-  @ApiProperty()
   lastName: string;
 
   @IsString()
@@ -50,6 +40,19 @@ export class SignUpDto {
   @ApiProperty()
   phone: string;
 
+  @IsString()
+  @IsNotEmpty()
+  @ApiProperty()
+  village: string;
 
+  @IsNumber()
+  @IsNotEmpty()
+  @ApiProperty()
+  cityId: number;
+
+  @IsNumber()
+  @IsNotEmpty()
+  @ApiProperty()
+  branchId: number;
 }
 
